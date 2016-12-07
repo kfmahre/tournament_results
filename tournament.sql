@@ -42,7 +42,7 @@ CREATE VIEW v_wins AS
     GROUP BY Players.id
     ORDER BY Players.id;
 
--- A view to show how many matches each player played
+-- A view to show match details
 CREATE VIEW v_matches AS
     SELECT Players.id, count(Match.*)
     AS v_matches
@@ -53,6 +53,7 @@ CREATE VIEW v_matches AS
     GROUP BY Players.id
     ORDER BY Players.id;
 
+-- A view to show the standings
 CREATE VIEW v_standings AS
     SELECT Players.id, Players.name,
     v_wins.v_wins, v_matches.v_matches
